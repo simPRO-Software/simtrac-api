@@ -18,15 +18,18 @@ And additional access points for applications using 'User Token Access' / '3 Leg
 
 #Methods
 
-`simtrac.test(any arg): string`
+##`simtrac.test(any arg): string`
+
 Returns a string representation of `arg`
 
-`simtrac.get_token_ttl(string accessTokenKey): int`
+##`simtrac.get_token_ttl(string accessTokenKey): int`
+
 Tests the current access token for time-to-live
 
-`simtrac.get_user_details(): UserDetailsResponse`
+##`simtrac.get_user_details(): UserDetailsResponse`
 
 Returns details on the current user
+
 ```js
 UserDetailsResponse = {
   name_first: string, 
@@ -36,8 +39,10 @@ UserDetailsResponse = {
 }
 ```
 
-`simtrac.get_vehicle(): GetVehiclesResponse`
+##`simtrac.get_vehicle(): GetVehiclesResponse`
+
 Returns a list of vehicles accessible by the current users
+
 ```
 GetVehiclesResponse = [
   {
