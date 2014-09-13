@@ -18,15 +18,15 @@ And additional access points for applications using 'User Token Access' / '3 Leg
 
 #Methods
 
-`simtrac.test(any arg): string`
+`simtrac.test(any arg)` returns `string`
 
 Returns a string representation of `arg`
 
-`simtrac.get_token_ttl(string accessTokenKey): int`
+`simtrac.get_token_ttl(string accessTokenKey)` returns `int`
 
 Tests the current access token for time-to-live
 
-`simtrac.get_user_details(): UserDetailsResponse`
+`simtrac.get_user_details()` returns `UserDetailsResponse`
 
 Returns details on the current user
 
@@ -39,7 +39,7 @@ UserDetailsResponse = {
 }
 ```
 
-`simtrac.get_vehicle(): GetVehiclesResponse`
+`simtrac.get_vehicle()` returns `GetVehiclesResponse`
 
 Returns a list of vehicles accessible by the current users
 
@@ -66,7 +66,7 @@ GetVehiclesResponse = [
 ```
 
 
-`simtrac.get_group(): GetGroupsResponse`
+`simtrac.get_group()` returns `GetGroupsResponse`
 
 Returns a list of groups accessible by the current users
 
@@ -81,7 +81,7 @@ GetGroupsResponse = [
 ```
 
 
-`simtrac.get_drivers(): GetDriversResponse`
+`simtrac.get_drivers()` returns `GetDriversResponse`
 
 Returns a list of drivers accessible by the current users
 
@@ -101,7 +101,7 @@ GetDriversResponse = [
 ]
 ```
 
-`simtrac.get_vehicle_position([string since]): GetVehiclePositionResponse`
+`simtrac.get_vehicle_position([string since])` returns `GetVehiclePositionResponse`
 
 Returns the current positions for vehicles; if they have been updated since `since`.
 
@@ -135,12 +135,12 @@ GetVehiclePositionResponse = {
 }
 ```
 
-`simtrac.send_message(int vehicle_id, string message): boolean`
+`simtrac.send_message(int vehicle_id, string message)` returns `boolean`
 
 Sends a message to the specified vehicle
 
 
-`simtrac.get_messages_inbox([string since]): GetMessagesInboxResponse`
+`simtrac.get_messages_inbox([string since])` returns ` GetMessagesInboxResponse`
 
 Returns the current inbox messages; if they have been updated since `since`.
 
@@ -164,7 +164,7 @@ GetMessagesInboxResponse = {
 }
 ```
 
-`simtrac.get_messages_outbox([string since]): GetMessagesOutboxResponse`
+`simtrac.get_messages_outbox([string since])` returns `GetMessagesOutboxResponse`
 
 Returns the current outbox messages; if they have been updated since `since`.
 
@@ -195,3 +195,22 @@ GetMessagesOutboxResponse = {
   ]
 }
 ```
+
+
+`simtrac.set_message_read(int message_received_id)` returns `boolean`
+
+Marks a received message as read
+
+
+`simtrac.set_message_unread(int message_received_id)` returns `boolean`
+
+Marks a received message as unread
+
+
+`simtrac.set_message_archived(int message_sent_id)` returns `boolean`
+
+Archives a sent message
+
+`simtrac.set_message_unarchived(int message_sent_id)` returns `boolean`
+
+Un-archives a sent message
