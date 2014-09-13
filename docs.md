@@ -18,15 +18,15 @@ And additional access points for applications using 'User Token Access' / '3 Leg
 
 #Methods
 
-##`simtrac.test(any arg): string`
+`simtrac.test(any arg): string`
 
 Returns a string representation of `arg`
 
-##`simtrac.get_token_ttl(string accessTokenKey): int`
+`simtrac.get_token_ttl(string accessTokenKey): int`
 
 Tests the current access token for time-to-live
 
-##`simtrac.get_user_details(): UserDetailsResponse`
+`simtrac.get_user_details(): UserDetailsResponse`
 
 Returns details on the current user
 
@@ -39,7 +39,7 @@ UserDetailsResponse = {
 }
 ```
 
-##`simtrac.get_vehicle(): GetVehiclesResponse`
+`simtrac.get_vehicle(): GetVehiclesResponse`
 
 Returns a list of vehicles accessible by the current users
 
@@ -65,3 +65,133 @@ GetVehiclesResponse = [
 ]
 ```
 
+
+`simtrac.get_group(): GetGroupsResponse`
+
+Returns a list of groups accessible by the current users
+
+```
+GetGroupsResponse = [
+  {
+    group_id: int,
+    group_name: string,
+    group_description: string
+  }
+]
+```
+
+
+`simtrac.get_drivers(): GetDriversResponse`
+
+Returns a list of drivers accessible by the current users
+
+```
+GetDriversResponse = [
+  {
+    driver_id: int,
+    name_first: string,
+    name_last: string,
+    phone_mobile: string,
+    phone_other: string,
+    licence_no: string,
+    licence_expiry: string,
+    licence_class: string,
+    notes: string
+  }
+]
+```
+
+`simtrac.get_vehicle_position([string since]): GetVehiclePositionResponse`
+
+Returns the current positions for vehicles; if they have been updated since `since`.
+
+Pass the `retrieved` parameter back to the next call as `since`.
+
+```
+GetVehiclePositionResponse = {
+  retrieved: string,
+  vehicle_stats: [
+    {
+      vehicle_id: int,
+      longitude: string,
+      latitude: string,
+      position_update: string,
+      direction: int,
+      speed: int,
+      status_acc: boolean,
+      driver_id: int,
+      driver_name: string,
+      invalid_count: int,
+      last_status_change: string,
+      status_change_interval: int,
+      status_switch: int,
+      current_address: string,
+      message_count: int,
+      geofences: [int],
+      geosites: [int],
+      last_activity: int
+    }
+  ]
+}
+```
+
+`simtrac.send_message(int vehicle_id, string message): boolean`
+
+Sends a message to the specified vehicle
+
+
+`simtrac.get_messages_inbox([string since]): GetMessagesInboxResponse`
+
+Returns the current inbox messages; if they have been updated since `since`.
+
+Pass the `retrieved` parameter back to the next call as `since`.
+
+```
+GetMessagesInboxResponse = {
+  retrieved: string,
+  messages: [
+    {
+      vehicle_message_received_id: int,
+      vehicle_id: int,
+      vehicle_name: string,
+      driver_name: string,
+      datetime: string,
+      message: string,
+      message_read: boolean,
+      archived: boolean
+    }
+  ]
+}
+```
+
+`simtrac.get_messages_outbox([string since]): GetMessagesOutboxResponse`
+
+Returns the current outbox messages; if they have been updated since `since`.
+
+Pass the `retrieved` parameter back to the next call as `since`.
+
+```
+GetMessagesOutboxResponse = {
+  retrieved: string,
+  messages: [
+    {
+      vehicle_message_sent_id: int,
+      vehicle_id: int,
+      vehicle_name: string,
+      driver_name: string,
+      user_id: int,
+      name_first: string,
+      name_last: string,
+      date_created: string,
+      message: string,
+      sent: string,
+      delivered: string,
+      archived: boolean,
+      latlng: string,
+      location_address: string,
+      message_response: string,
+      message_status: string
+    }
+  ]
+}
+```
