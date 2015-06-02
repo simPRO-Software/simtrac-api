@@ -2,18 +2,18 @@
 The simTRAC API can be communicated with via JSON-RPC 2 over HTTPS. Authentication is handled via OAuth 1.0.
 
 #Access Points
-The simTRAC API has one main access point: `https://login.sitmrac.com.au/api/`
+The simTRAC API has one main access point: `https://login.simtrac.com.au/api/`
 
 And additional access points for applications using 'User Token Access' / '3 Legged' Open Authentication:
 
 ##Request Token
-`https://login.sitmrac.com.au/api/oauth/request_token.php`
+`https://login.simtrac.com.au/api/oauth/request_token.php`
 
 ##Authorization
-`https://login.sitmrac.com.au/authorisation/oauth/authorise.php`
+`https://login.simtrac.com.au/authorisation/oauth/authorise.php`
 
 ##Access Token
-`https://login.sitmrac.com.au/api/oauth/access_token.php`
+`https://login.simtrac.com.au/api/oauth/access_token.php`
 
 
 #Methods
